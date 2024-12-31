@@ -1,30 +1,36 @@
 <!DOCTYPE html>
+
 <html>
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="pokemonSprite.js"></script>
       <title>
         Steve Rivera!
       </title>
     </head>
   <body>
-    <section>
-      <nav>
+    <section class="topBody">
+      <div class="pokemonSprite">
+        <input type="text" id="pokemonName" placeholder="enter pokemon's name">
+        <button onClick="fetchData()">tiny pokemon sprite</button><br>
+        <p id="error" style="display:none"></p>
+        <img src="" alt="pokemon sprite" id="sprite" style="display:none;">
+
+      </div>
+      <nav class="mainMenu" id="list">
         <ul>
-          <li>Home</li>
-          <li>Resume</li>
-          <li>About</li>
-          <li>Fun</li>
+          <a href="" id="about">About me</a>
+          <a href=""id="mtg">MTG</a>
+          <a href="" id="work">Work</a>
+          <a href="" id="resume">Resume</a>
         </ul>
-      </nav>  
+      </nav>
+          
     </section>
-    <script>
-      fetch("frontPage.html")
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById("content").innerHTML = data;
-        })
-        .catch(error => console.error("Something went wrong, We are working on it", error));
-    </script>
+    <section>
+      <div class="mainBody">Enjoy a tiny pokemon sprite while i work on my website...</div>
+    </section>
   </body>
-</html>
+  </html>
