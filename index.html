@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html>
     <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>
-        Working on portfolio website.... give me a sec!!!!
+        Steve Rivera!
       </title>
     </head>
   <body>
-    <nav>
-    <ul>
-        <li>Home</li>
-        <li>Resume</li>
-        <li>About</li>
-        <li>Fun</li>
-      </ul>
-    </nav>
     <section>
-
+      <nav>
+        <ul>
+          <li>Home</li>
+          <li>Resume</li>
+          <li>About</li>
+          <li>Fun</li>
+        </ul>
+      </nav>  
     </section>
+    <script>
+      fetch("frontPage.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("content").innerHTML = data;
+        })
+        .catch(error => console.error("Something went wrong, We are working on it", error));
+    </script>
   </body>
 </html>
