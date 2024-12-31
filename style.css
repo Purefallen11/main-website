@@ -1,0 +1,36 @@
+.pokemonSprite{
+    float:left;
+    padding-top: 15px;
+    font-size: 10px;
+}
+.topbody{
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+.mainMenu{
+    float:right;
+    padding-right: 2em;
+}
+.mainMenu a{
+    
+    display: inline;
+    padding-left: 5px;
+    padding-right: 15px;
+    text-decoration: none;
+    color: inherit;
+}
+.mainBody{
+    padding-top: 200px;
+    text-align: inherit;
+    display: flexbox;
+
+}
+#about:hover{
+    color:red;
+}
+#mtg:hover{
+    color:blue;
+}
+#work:hover{
+    color:green;
+}
