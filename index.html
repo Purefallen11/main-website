@@ -13,10 +13,13 @@
   <body>
     <section class="topBody">
       <div class="pokemonSprite">
-        <input type="text" id="pokemonName" placeholder="enter pokemon's name">
-        <button onClick="fetchData()">tiny pokemon sprite</button><br>
+        <input type="text" id="pokemonInput" placeholder="enter pokemon's name">
+        <button id="searchButton">find</button><br>
+        <button id="randomPokemon">random poke</button>
         <p id="error" style="display:none"></p>
-        <img src="" alt="pokemon sprite" id="sprite" style="display:none;">
+        <div id="pokemonData">
+        </div>
+
 
       </div>
       <nav class="mainMenu" id="list">
