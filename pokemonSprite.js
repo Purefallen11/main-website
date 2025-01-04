@@ -25,7 +25,7 @@ async function fetchData(query) {
   }
   try {
 
-    const response = await fetch(`http://localhost:5500/pokemon?name=${query}`)
+    const response = await fetch(`http://localhost:3000/pokemon?name=${query}`)
 
     if (!response.ok) {
       throw new Error("Could not find your pokemon")
@@ -43,8 +43,8 @@ async function fetchData(query) {
 async function fetchRandomPokemon() {
   const randomId = Math.floor(Math.random() * 1025) + 1;
   try {
-    const response = await fetch(`http://localhost:5500/pokemon/random?id=${randomId}`);
-    
+    const response = await fetch(`http://localhost:3000/pokemon/random?id=${randomId}`);
+
     if (!response.ok) {
       throw new Error("Could not fetch random pokemon")
     }
@@ -59,10 +59,15 @@ async function fetchRandomPokemon() {
 }
 
 function displayPokemon(data) {
-  const pokemonDiv = document.getElementById("pokemonData");
-  pokemonDiv.innerHTML = `
-  <h2>${data.name}</h2>
-  <img src="${data.sprinte.front_default} alt="${data.name} />`
+  const pokemonContainer = document.getElementById("pokemonContainer");
+  pokemonContainer.innerHTML = 
+    `
+    <h1>${data.name}</h1>
+    <img src=${data.sprites.front_default} alt="Sprite of ${data.name}">
+    <img src=${data.sprites.other.home.front_default.png}>
+    `
+  console.log(data.sprites.other.home.front_default)
+
 }
 
 

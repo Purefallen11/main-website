@@ -27,8 +27,10 @@ app.get("/pokemon", async (req, res) => {
         }
 
         const data = await response.json();
+
+        const sprite = data.sprites.front_default;
         
-        res.json(data)
+        res.json({name: data.name, sprite})
     }
     catch (error) {
         res.status(500).json({ error: "Internal Server Error" })
