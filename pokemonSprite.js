@@ -64,7 +64,6 @@ function displayPokemon(data) {
     `
     <h1>${data.name}</h1>
     <img src=${data.sprites.front_default} alt="Sprite of ${data.name}">
-    <img src=${data.sprites.other.home.front_default.png}>
     `
   console.log(data.sprites.other.home.front_default)
 
