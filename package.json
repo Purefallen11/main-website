@@ -1,0 +1,22 @@
+{
+  "name": "main-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "pokemonSprite.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Purefallen11/main-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Purefallen11/main-website/issues"
+  },
+  "homepage": "https://github.com/Purefallen11/main-website#readme"
+}

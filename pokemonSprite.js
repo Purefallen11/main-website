@@ -1,34 +1,72 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const input = document.getElementById("pokemonInput");
+  const searchButton = document.getElementById("searchButton");
+  const randomButtom = document.getElementById("randomPokemon")
 
-        
-//fetch("https://api.openweathermap.org/data/2.5/weather?lat=33.1983&lon=-96.6389&appid=880fb3736ebc11c78939e57aedc7c43d")
-  //  .then(response => response.json())
-    //.then(data => console.log(data))
-    //.catch(error => console.log(error))
-    
+  searchButton.addEventListener("click", () => {
+    fetchData(input.value);
+  });  
+  randomButtom.addEventListener("click", () => {
+    fetchRandomPokemon();
+  });
 
+  input.addEventListener("keydown", function(e) {
+    if(e.key === "Enter"){
+    fetchData(input.value)
+  }
+});
+})
 
-async function fetchData() {
+async function fetchData(query) {
+  
+  if (!query) {
+    alert("Please enter pokemon name or id");
+    return;
+  }
   try {
 
-    const pokemonName = document.getElementById("pokemonName").value.toLowerCase()
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
-    
+    const response = await fetch(`http://localhost:3000/pokemon?name=${query}`)
 
     if (!response.ok) {
       throw new Error("Could not find your pokemon")
     }
 
     const data = await response.json()
-    const sprite = data.sprites.front_default;
-    const imgElement = document.getElementById("sprite");
-
-    imgElement.src = sprite;
-    imgElement.style.display = "block";
-
+    
+    displayPokemon(data);
   }
   catch (error) {
     console.log(error)
   }
+}
+
+async function fetchRandomPokemon() {
+  const randomId = Math.floor(Math.random() * 1025) + 1;
+  try {
+    const response = await fetch(`http://localhost:3000/pokemon/random?id=${randomId}`);
+
+    if (!response.ok) {
+      throw new Error("Could not fetch random pokemon")
+    }
+
+    const data = await response.json()
+    displayPokemon(data);
+  }
+  catch (error) {
+    console.log(error)
+    alert("failed to find pokemon")
+  }
+}
+
+function displayPokemon(data) {
+  const pokemonContainer = document.getElementById("pokemonContainer");
+  pokemonContainer.innerHTML = 
+    `
+    <h1>${data.name}</h1>
+    <img src=${data.sprites.front_default} alt="Sprite of ${data.name}">
+    `
+  console.log(data.sprites.other.home.front_default)
+
 }
 
 
