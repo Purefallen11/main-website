@@ -25,7 +25,7 @@ async function fetchData(query) {
   }
   try {
 
-    const response = await fetch(`http://localhost:3000/pokemon?name=${query}`)
+    const response = await fetch(`https://main-website-2oms.onrender.com/pokemon?name=${query}`)
 
     if (!response.ok) {
       throw new Error("Could not find your pokemon")
@@ -46,8 +46,8 @@ async function fetchRandomPokemon() {
     const response = await fetch(`https://main-website-2oms.onrender.com/pokemon/random?id=${randomId}`);
 
     if (!response.ok) {
-      throw new Error("Could not fetch random pokemon")
       console.error(`ERROR ${response.status}: ${response.statusText}`);
+      throw new Error("Could not fetch random pokemon")
     }
 
     const data = await response.json()
