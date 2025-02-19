@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/Purefallen11/main-website/issues"
   },
-  "homepage": "https://github.com/Purefallen11/main-website#readme"
+  "homepage": "https://github.com/Purefallen11/main-website#readme",
+  "dependencies": {
+    "cors": "^2.8.5"
+  }
 }

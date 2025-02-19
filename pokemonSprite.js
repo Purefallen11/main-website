@@ -43,10 +43,11 @@ async function fetchData(query) {
 async function fetchRandomPokemon() {
   const randomId = Math.floor(Math.random() * 1025) + 1;
   try {
-    const response = await fetch(`http://localhost:3000/pokemon/random?id=${randomId}`);
+    const response = await fetch(`https://main-website-2oms.onrender.com/pokemon/random?id=${randomId}`);
 
     if (!response.ok) {
       throw new Error("Could not fetch random pokemon")
+      console.error(`ERROR ${response.status}: ${response.statusText}`);
     }
 
     const data = await response.json()
